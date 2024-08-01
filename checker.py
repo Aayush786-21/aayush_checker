@@ -30,7 +30,9 @@ def check_pdf_sections(file_stream):
     reader = PyPDF2.PdfReader(file_stream)
     content = []
     for page in reader.pages:
-        content.append(page.extract_text())
+        page_text = page.extract_text()
+        if page_text:  # Ensure the extracted text is not None
+            content.append(page_text)
     content = '\n'.join(content).lower()  # Convert content to lowercase
 
     # Check for each required section in the content
