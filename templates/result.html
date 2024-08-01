@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f7f7f7;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .container h1 {
+            margin-bottom: 20px;
+        }
+        .container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .container li {
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #ffdddd;
+            border: 1px solid #ff0000;
+            border-radius: 5px;
+        }
+        .container a {
+            text-decoration: none;
+            color: #007bff;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .container a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Missing Sections</h1>
+        <ul>
+            {% for section in missing_sections %}
+                <li>{{ section }}</li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('upload_file') }}">Go Back</a>
+    </div>
+</body>
+</html>
